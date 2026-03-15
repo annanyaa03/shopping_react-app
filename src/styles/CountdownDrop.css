@@ -1,0 +1,145 @@
+.countdown-drop {
+    margin: 60px auto;
+}
+
+.countdown-banner {
+    background: var(--text);
+    border-radius: 40px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    min-height: 500px;
+    color: white;
+    position: relative;
+}
+
+.countdown-content {
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+}
+
+.countdown-title {
+    font-size: clamp(32px, 4vw, 56px);
+    margin-bottom: 40px;
+    line-height: 1;
+}
+
+.countdown-timer {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 60px;
+}
+
+.timer-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer-value {
+    font-family: var(--font-display);
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1;
+    display: block;
+}
+
+.timer-label {
+    font-size: 10px;
+    opacity: 0.5;
+    letter-spacing: 0.2em;
+    margin-top: 8px;
+}
+
+.drop-form {
+    display: flex;
+    gap: 12px;
+    max-width: 500px;
+}
+
+.drop-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 16px 24px;
+    border-radius: 100px;
+    color: white;
+    font-family: var(--font-body);
+}
+
+.drop-submit {
+    background: var(--primary);
+    color: var(--text);
+    padding: 16px 32px;
+    border-radius: 100px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: transform 0.2s;
+}
+
+.drop-submit:hover {
+    transform: scale(1.05);
+}
+
+.drop-success {
+    padding: 20px 32px;
+    background: rgba(201, 185, 154, 0.1);
+    border: 1px solid var(--primary);
+    border-radius: 100px;
+    color: var(--primary);
+    font-family: var(--font-display);
+    font-weight: 700;
+}
+
+.countdown-teaser {
+    position: relative;
+    overflow: hidden;
+}
+
+.teaser-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(40px) brightness(0.7);
+    transform: scale(1.2);
+}
+
+.teaser-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--text), transparent);
+}
+
+@media (max-width: 1024px) {
+    .countdown-banner {
+        grid-template-columns: 1fr;
+    }
+
+    .countdown-teaser {
+        display: none;
+    }
+
+    .countdown-content {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .countdown-timer {
+        gap: 16px;
+        justify-content: space-between;
+    }
+
+    .timer-value {
+        font-size: 40px;
+    }
+
+    .drop-form {
+        flex-direction: column;
+    }
+}

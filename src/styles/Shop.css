@@ -1,0 +1,133 @@
+.shop-page {
+  padding-top: 100px;
+  min-height: 100vh;
+}
+
+.shop-hero {
+  padding: 40px 32px 24px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.shop-hero__title {
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.shop-hero__count {
+  font-family: var(--font-display);
+  font-size: 14px;
+  opacity: 0.4;
+  font-weight: 600;
+}
+
+.shop-controls {
+  padding: 0 32px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.shop-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 8px 20px;
+  border-radius: 100px;
+  border: 2px solid var(--secondary);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s;
+  background: white;
+}
+
+.filter-chip:hover {
+  border-color: var(--accent);
+}
+
+.filter-chip.active {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--background);
+}
+
+.shop-sort {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 2px solid var(--secondary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  background: white;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.shop-sort:focus {
+  border-color: var(--accent);
+}
+
+.product-grid-shop {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 0 32px 80px;
+}
+
+.product-skeleton {
+  aspect-ratio: 3/4;
+  border-radius: 16px;
+  background: linear-gradient(90deg, var(--secondary) 25%, var(--surface) 50%, var(--secondary) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.shop-empty {
+  padding: 80px 32px;
+  text-align: center;
+  opacity: 0.4;
+  font-size: 18px;
+}
+
+@media (max-width: 1024px) {
+  .product-grid-shop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid-shop {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .shop-controls {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .shop-hero {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

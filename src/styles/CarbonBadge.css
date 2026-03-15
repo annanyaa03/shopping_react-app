@@ -1,0 +1,103 @@
+.carbon-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--secondary);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--carbon-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.carbon-badge__icon {
+    font-size: 12px;
+}
+
+/* Expanded Section for Product Page */
+.carbon-expanded {
+    margin-top: 40px;
+    padding: 30px;
+    background: var(--white);
+    border-radius: 24px;
+    border: 1px solid var(--secondary);
+}
+
+.carbon-expanded__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.carbon-expanded__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+}
+
+.carbon-expanded__title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.carbon-expanded__subtitle {
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.carbon-chart {
+    margin-bottom: 24px;
+}
+
+.carbon-chart__labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.carbon-chart__bar-wrap {
+    height: 8px;
+    background: var(--secondary);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.carbon-chart__bar {
+    height: 100%;
+}
+
+.carbon-chart__labels--avg {
+    opacity: 0.4;
+    margin-top: 10px;
+}
+
+.carbon-chart__bar-wrap--avg {
+    height: 4px;
+    opacity: 0.4;
+}
+
+.carbon-chart__bar--avg {
+    background: var(--text);
+}
+
+.carbon-expanded__footer {
+    font-size: 13px;
+    line-height: 1.6;
+    opacity: 0.5;
+    padding-top: 20px;
+    border-top: 1px dashed var(--secondary);
+}
