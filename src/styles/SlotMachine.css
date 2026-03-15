@@ -1,0 +1,152 @@
+.slot-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.slot-machine {
+    background: var(--background);
+    padding: 60px;
+    border-radius: 40px;
+    text-align: center;
+    position: relative;
+    width: 900px;
+    max-width: 95vw;
+}
+
+.slot-machine__close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 40px;
+}
+
+.slot-machine__title {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.slot-machine__subtitle {
+    font-size: 18px;
+    opacity: 0.6;
+    margin-bottom: 40px;
+}
+
+.slot-reels {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.slot-reel {
+    height: 300px;
+    background: var(--surface);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slot-reel__inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slot-reel__inner.spinning {
+    animation: reelSpin 0.1s linear infinite;
+}
+
+@keyframes reelSpin {
+    0% {
+        transform: translateY(-10%);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(10%);
+        opacity: 0.5;
+    }
+}
+
+.reel-result img {
+    width: 180px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.reel-result p {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.reel-placeholder {
+    font-size: 80px;
+}
+
+.slot-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.slot-btn {
+    padding: 20px 40px;
+    border-radius: 100px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+}
+
+.slot-btn--spin {
+    background: var(--text);
+    color: var(--background);
+}
+
+.slot-btn--add {
+    background: var(--primary);
+    color: var(--text);
+}
+
+.slot-btn:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .slot-machine {
+        padding: 30px;
+    }
+
+    .slot-reels {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .slot-reel {
+        height: 200px;
+    }
+
+    .reel-result img {
+        height: 140px;
+        width: 120px;
+    }
+
+    .slot-actions {
+        flex-direction: column;
+    }
+}

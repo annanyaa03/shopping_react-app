@@ -1,0 +1,114 @@
+:root {
+  --primary: #C9B99A;
+  --accent: #8B7355;
+  --secondary: #E8DDD0;
+  --background: #FDFCFB;
+  --surface: #F5F0EA;
+  --text: #2A2420;
+  --highlight: #D4B896;
+  --lime: #C9B99A;
+  --coral: #8B7355;
+  --sky: #E8DDD0;
+  --violet: #D4B896;
+  --peach: #C9B99A;
+  --black: #2A2420;
+  --white: #FDFCFB;
+  --gray: #E8DDD0;
+  --dark-gray: #8B7355;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Jost', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  letter-spacing: 0.01em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 3px;
+}
+
+/* Utility */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* Soft card style used everywhere */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  border: var(--border-soft);
+}
+
+/* Refined button base */
+button {
+  letter-spacing: 0.04em;
+}
+
+/* Elegant image hover */
+img {
+  transition: opacity 0.3s ease;
+}

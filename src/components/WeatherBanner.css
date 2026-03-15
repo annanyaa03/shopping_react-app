@@ -1,0 +1,80 @@
+.weather-banner {
+    background: var(--weather-color, var(--primary));
+    padding: 12px 32px;
+    position: sticky;
+    top: 72px;
+    /* right below header */
+    z-index: 90;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.weather-banner__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.weather-banner__left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.weather-banner__label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--text);
+}
+
+.weather-banner__temp {
+    font-size: 12px;
+    opacity: 0.6;
+    font-family: var(--font-body);
+}
+
+.weather-banner__center {
+    flex: 1;
+    text-align: center;
+}
+
+.weather-banner__message {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text);
+}
+
+.weather-banner__message strong {
+    font-family: var(--font-display);
+    font-weight: 700;
+}
+
+.weather-banner__cta {
+    padding: 8px 20px;
+    background: var(--text);
+    color: var(--white);
+    border-radius: 100px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+    text-decoration: none;
+}
+
+.weather-banner__cta:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .weather-banner {
+        padding: 10px 16px;
+    }
+
+    .weather-banner__left {
+        display: none;
+    }
+}

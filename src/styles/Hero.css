@@ -1,0 +1,273 @@
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+}
+
+/* Colorful background blobs */
+.hero__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  pointer-events: none;
+  animation: blobFloat 8s ease-in-out infinite alternate;
+}
+
+.hero__blob--lime {
+  width: 500px;
+  height: 500px;
+  background: var(--primary);
+  top: -100px;
+  right: 20%;
+}
+
+.hero__blob--coral {
+  width: 360px;
+  height: 360px;
+  background: var(--secondary);
+  bottom: 10%;
+  right: 5%;
+  animation-delay: -3s;
+}
+
+.hero__blob--sky {
+  width: 300px;
+  height: 300px;
+  background: var(--highlight);
+  top: 30%;
+  left: -60px;
+  animation-delay: -6s;
+}
+
+@keyframes blobFloat {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(30px, 20px) scale(1.1);
+  }
+}
+
+.hero__content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.hero__dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+.hero__heading {
+  font-size: clamp(52px, 6vw, 88px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.hero__accent {
+  position: relative;
+  display: inline-block;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--text);
+}
+
+.hero__period {
+  color: var(--accent);
+}
+
+.hero__sub {
+  font-size: 17px;
+  line-height: 1.6;
+  opacity: 0.6;
+  max-width: 380px;
+}
+
+.hero__ctas {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.hero__cta {
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.hero__cta--primary {
+  background: var(--text);
+  color: var(--background);
+}
+
+.hero__cta--primary:hover {
+  background: var(--accent);
+  color: var(--background);
+}
+
+.hero__cta--secondary {
+  border: 2px solid var(--text);
+  color: var(--text);
+}
+
+.hero__cta--secondary:hover {
+  background: var(--text);
+  color: var(--background);
+}
+
+/* Image grid */
+.hero__image-grid {
+  display: flex;
+  gap: 16px;
+  height: 520px;
+}
+
+.hero__img {
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hero__img:hover img {
+  transform: scale(1.05);
+}
+
+.hero__img--large {
+  flex: 1.4;
+  height: 100%;
+}
+
+.hero__img-stack {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero__img--small {
+  flex: 1;
+}
+
+.hero__img--offset {
+  margin-top: 0;
+  border-top-left-radius: 60px;
+}
+
+.hero__img-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: var(--primary);
+  color: var(--text);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* Marquee */
+.hero__marquee {
+  border-top: 2px solid var(--text);
+  border-bottom: 2px solid var(--text);
+  background: var(--text);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 14px 0;
+}
+
+.hero__marquee-track {
+  display: inline-flex;
+  gap: 40px;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+.hero__marquee-item {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--background);
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .hero__content {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__image-grid {
+    display: none;
+  }
+}
