@@ -10,6 +10,7 @@ import OutfitBuilder from './pages/OutfitBuilder'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
 import Checkout from './pages/Checkout'
+import CheckoutSuccess from './pages/CheckoutSuccess'
 import { AuthProvider } from './context/AuthContext'
 import { clearProductCache } from './api/shopify'
 import './styles/App.css'
@@ -44,6 +45,7 @@ function AppRoutes() {
           <Route path="/outfit-builder" element={<OutfitBuilder />} />
           <Route path="/product/:handle" element={<ProductPage />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/success" element={<CheckoutSuccess />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>

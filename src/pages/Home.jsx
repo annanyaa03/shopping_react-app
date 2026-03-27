@@ -90,14 +90,14 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="footer container">
-        <div className="footer__inner">
+      <footer className="footer">
+        <div className="footer__inner container">
           <div className="footer__top">
             <div className="footer__signup">
-              <h3>Join the Drip List</h3>
-              <p>Early access to drops and exclusive news.</p>
+              <h3>Stay Updated</h3>
+              <p>Get early access to new drops and exclusive offers.</p>
               <form className="footer__form">
-                <input type="email" placeholder="Email address" required />
+                <input type="email" placeholder="Enter your email" required />
                 <button type="submit">→</button>
               </form>
             </div>
@@ -110,31 +110,22 @@ export default function Home() {
               <div className="footer__links">
                 <div className="footer__nav-col">
                   <h4>Shop</h4>
-                  <a href="#">New Arrivals</a>
-                  <a href="#">Best Sellers</a>
-                  <a href="#">Sale</a>
-                  <a href="#">Gift Cards</a>
+                  <a href="/new">New Arrivals</a>
+                  <a href="/shop">All Products</a>
+                  <a href="/sale">Sale</a>
                 </div>
                 <div className="footer__nav-col">
                   <h4>Support</h4>
                   <a href="#">Size Guide</a>
-                  <a href="#">Shipping Info</a>
-                  <a href="#">Returns & Exchanges</a>
-                  <a href="#">Contact Us</a>
+                  <a href="#">Shipping</a>
+                  <a href="#">Returns</a>
+                  <a href="#">Contact</a>
                 </div>
                 <div className="footer__nav-col">
                   <h4>Company</h4>
-                  <a href="#">About Us</a>
+                  <a href="#">About</a>
                   <a href="#">Sustainability</a>
                   <a href="#">Careers</a>
-                  <a href="#">Press</a>
-                </div>
-                <div className="footer__nav-col">
-                  <h4>Legal</h4>
-                  <a href="#">Privacy Policy</a>
-                  <a href="#">Terms of Service</a>
-                  <a href="#">Accessibility</a>
-                  <a href="#">Cookie Policy</a>
                 </div>
               </div>
             </div>
@@ -143,39 +134,33 @@ export default function Home() {
           <div className="footer__bottom">
             <div className="footer__socials">
               <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                 </svg>
               </a>
               <a href="#" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
                 </svg>
               </a>
               <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-                </svg>
-              </a>
-              <a href="#" aria-label="Pinterest" target="_blank" rel="noopener noreferrer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <path d="M8 12c.5 2.5 1.5 3.5 3 3.5s2.5-1 2.5-3-1.5-3.5-3-3.5-2.5 1-2.5 3z"/>
                 </svg>
               </a>
             </div>
             <div className="footer__trust">
               <div className="footer__badge">Sustainability Certified</div>
               <div className="footer__payments">
-                <span className="payment-icon">VISA</span>
-                <span className="payment-icon">MC</span>
-                <span className="payment-icon">AMEX</span>
-                <span className="payment-icon">PayPal</span>
+                <span>VISA</span>
+                <span>MC</span>
+                <span>AMEX</span>
+                <span>PayPal</span>
               </div>
             </div>
-            <p className="footer__copy">© 2025 DRIP. Crafted with care for conscious fashion.</p>
+            <p className="footer__copy">© 2025 DRIP. All rights reserved.</p>
           </div>
         </div>
       </footer>

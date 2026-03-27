@@ -29,7 +29,9 @@ export default function Checkout() {
   const [isProcessing, setIsProcessing] = useState(false)
 
   useEffect(() => {
+    console.log('Checkout useEffect triggered, items length:', items.length)
     if (items.length === 0) {
+      alert('Your cart is empty! Please add items to your cart before checking out.')
       navigate('/shop')
     }
   }, [items, navigate])
@@ -164,8 +166,8 @@ export default function Checkout() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Link to="/cart" className="checkout__back">
-            ← Back to Cart
+          <Link to="/shop" className="checkout__back">
+            ← Back to Shop
           </Link>
           <h1 className="checkout__title">Checkout</h1>
         </motion.div>

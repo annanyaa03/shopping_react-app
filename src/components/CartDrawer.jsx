@@ -9,7 +9,10 @@ export default function CartDrawer() {
   const navigate = useNavigate()
 
   const handleCheckout = () => {
-    if (items.length === 0) return
+    if (items.length === 0) {
+      alert('Your cart is empty! Please add items before checkout.')
+      return
+    }
     setIsOpen(false)
     navigate('/checkout')
   }
