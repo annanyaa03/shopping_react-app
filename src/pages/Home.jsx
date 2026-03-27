@@ -1,10 +1,7 @@
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Hero from '../components/Hero'
-import ProductCard from '../components/ProductCard'
 import CountdownDrop from '../components/CountdownDrop'
-import { fetchProducts } from '../api/shopify'
 import '../styles/Home.css'
 
 const CATEGORIES = [
@@ -15,16 +12,6 @@ const CATEGORIES = [
 ]
 
 export default function Home() {
-  const [featured, setFeatured] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetchProducts().then(products => {
-      setFeatured(products.slice(0, 4))
-      setLoading(false)
-    })
-  }, [])
-
   return (
     <main>
       <Hero />
@@ -78,31 +65,6 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
-      </section>
-
-      {/* Featured Products */}
-      <section className="featured container">
-        <div className="section-header">
-          <motion.h2
-            className="section-title"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            Featured Drops
-          </motion.h2>
-          <Link to="/shop" className="section-link section-link--bold">View all →</Link>
-        </div>
-
-        {loading ? (
-          <div className="product-grid">
-            {[...Array(4)].map((_, i) => <div key={i} className="product-skeleton" />)}
-          </div>
-        ) : (
-          <div className="product-grid">
-            {featured.filter(p => !p.rating || p.rating >= 4.0).map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
-          </div>
-        )}
       </section>
 
       {/* Banner */}

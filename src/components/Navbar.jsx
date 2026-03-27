@@ -38,16 +38,18 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <ul className="navbar__links">
-          {['/', '/shop', '/outfit-builder', '/new', '/sale'].map((path, i) => {
-            const labels = ['Home', 'Shop', 'AI Builder', 'New In', 'Sale']
-            return (
-              <li key={path}>
-                <Link to={path} className={`navbar__link ${location.pathname === path ? 'active' : ''}`}>
-                  {labels[i]}
-                </Link>
-              </li>
-            )
-          })}
+          {[
+            { path: '/shop', label: 'Shop' },
+            { path: '/outfit-builder', label: 'AI Builder' },
+            { path: '/new', label: 'New In' },
+            { path: '/sale', label: 'Sale' }
+          ].map(({ path, label }, i) => (
+            <li key={path}>
+              <Link to={path} className={`navbar__link ${location.pathname === path ? 'active' : ''}`}>
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* Actions */}
@@ -58,7 +60,10 @@ export default function Navbar() {
             whileTap={{ scale: 0.97 }}
             onClick={() => setSlotOpen(true)}
           >
-            SURPRISE ME 🛍️
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+            Discover
           </motion.button>
 
           <button className="navbar__cart" onClick={() => setIsOpen(true)}>
@@ -108,7 +113,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
           >
-            {[['/', 'Home'], ['/shop', 'Shop'], ['/outfit-builder', 'AI Builder'], ['/new', 'New In'], ['/sale', 'Sale']].map(([path, label]) => (
+            {[['/shop', 'Shop'], ['/outfit-builder', 'AI Builder'], ['/new', 'New In'], ['/sale', 'Sale']].map(([path, label]) => (
               <Link key={path} to={path} className="navbar__mobile-link">{label}</Link>
             ))}
             {isAuthenticated ? (
