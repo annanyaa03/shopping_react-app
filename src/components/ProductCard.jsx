@@ -53,11 +53,14 @@ export default function ProductCard({ product, index = 0 }) {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           onError={(e) => { e.target.src = fallbackImg }}
         />
+        
+        {/* Rating & Review Count */}
         {product.rating && (
-          <div className="product-card__rating-badge" style={{ position: 'absolute', bottom: '12px', left: '12px', background: 'var(--background)', color: 'var(--text)', padding: '4px 8px', borderRadius: '4px', fontSize: '0.8rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px', zIndex: 2 }}>
-            ★ {product.rating}
+          <div className="product-card__rating">
+            <span className="star">★</span> {product.rating} <span className="reviews">({product.reviews || 0})</span>
           </div>
         )}
+
         {tag && (
           <span
             className="product-card__tag"
@@ -70,45 +73,39 @@ export default function ProductCard({ product, index = 0 }) {
             {tag.toUpperCase()}
           </span>
         )}
-        {product.rating && (
-          <div className="product-card__rating">
-            ★ {product.rating}
-          </div>
-        )}
-        {product.stock < 10 && (
-          <div className="product-card__stock">
-            Only {product.stock} left!
-          </div>
-        )}
-        {product.carbonKg && (
-          <div className="product-card__carbon">
-            <CarbonBadge value={product.carbonKg} />
-          </div>
-        )}
+
+        {/* Quick Add + Icon on Hover */}
         <motion.button
-          className={`product-card__quick-add ${added ? 'added' : ''}`}
+          className={`product-card__quick-add-btn ${added ? 'added' : ''}`}
           onClick={handleAdd}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 10 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: hovered ? 1 : 0, scale: hovered ? 1 : 0.8 }}
           transition={{ duration: 0.2 }}
-          whileTap={{ scale: 0.95 }}
         >
-          {added ? '✓ Added!' : 'Quick Add'}
+          {added ? '✓' : '+'}
         </motion.button>
       </Link>
+
       <div className="product-card__info">
-        <Link to={`/product/${product.handle}`}>
-          <h3 className="product-card__title">{product.title}</h3>
-        </Link>
-        <div className="product-card__price-wrap">
-          {product.compareAtPrice && (
-            <span className="product-card__compare-at">
-              ${parseFloat(product.compareAtPrice).toFixed(2)}
-            </span>
-          )}
-          <p className="product-card__price">
+        <div className="product-card__meta">
+          <Link to={`/product/${product.handle}`}>
+            <h3 className="product-card__title">{product.title}</h3>
+          </Link>
+          <div className="product-card__price">
             {currency === 'USD' ? '$' : currency}{price.toFixed(2)}
-          </p>
+          </div>
+        </div>
+
+        {/* Color Swatches */}
+        <div className="product-card__swatches">
+          {product.variants?.edges?.slice(0, 4).map((variant, i) => (
+            <div 
+              key={i} 
+              className="swatch-dot" 
+              style={{ backgroundColor: variant.node.selectedOptions?.find(o => o.name === 'Color')?.value || '#ccc' }}
+              title={variant.node.selectedOptions?.find(o => o.name === 'Color')?.value}
+            />
+          ))}
         </div>
       </div>
     </motion.div>

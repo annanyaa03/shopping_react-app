@@ -53,7 +53,11 @@ export default function SlotMachine({ isOpen, onClose }) {
                         animate={{ scale: 1, y: 0 }}
                         exit={{ scale: 0.8, y: 50 }}
                     >
-                        <button className="slot-machine__close" onClick={onClose}>×</button>
+                        <button className="slot-machine__close" onClick={onClose}>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                        </button>
                         <h2 className="slot-machine__title">Feeling Lucky? 🎰</h2>
                         <p className="slot-machine__subtitle">Spin to reveal your perfect outfit matches!</p>
 

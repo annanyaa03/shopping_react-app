@@ -92,15 +92,20 @@ export default function Shop({ defaultFilter = 'all' }) {
         </div>
 
         {/* Sort */}
-        <select
-          className="shop-sort"
-          value={sort}
-          onChange={e => setSort(e.target.value)}
-        >
-          {SORT_OPTIONS.map(s => (
-            <option key={s.value} value={s.value}>{s.label}</option>
-          ))}
-        </select>
+        <div className="shop-sort-wrapper">
+          <select
+            className="shop-sort"
+            value={sort}
+            onChange={e => setSort(e.target.value)}
+          >
+            {SORT_OPTIONS.map(s => (
+              <option key={s.value} value={s.value}>{s.label}</option>
+            ))}
+          </select>
+          <svg className="shop-sort-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor">
+            <path d="M3 5l3 3 3-3" strokeWidth="1.5" strokeLinecap="square"/>
+          </svg>
+        </div>
       </div>
 
       <div className="container">

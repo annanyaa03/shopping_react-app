@@ -33,8 +33,7 @@ export default function Navbar() {
       <div className="navbar__inner">
         {/* Logo */}
         <Link to="/" className="navbar__logo">
-          <span className="navbar__logo-text">DRIP</span>
-          <span className="navbar__logo-dot" />
+          DRIP<span>.</span>
         </Link>
 
         {/* Desktop Nav */}

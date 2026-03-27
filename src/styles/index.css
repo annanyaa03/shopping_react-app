@@ -95,13 +95,7 @@ img {
   }
 }
 
-/* Soft card style used everywhere */
-.card {
-  background: var(--surface);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-soft);
-  border: var(--border-soft);
-}
+/* Legacy .card utility removed for professional editorial design */
 
 /* Refined button base */
 button {

@@ -1,111 +1,153 @@
 .shop-page {
-  padding-top: 100px;
+  padding-top: 120px;
   min-height: 100vh;
+  background-color: var(--background);
 }
 
 .shop-hero {
-  padding: 40px 32px 24px;
+  padding: 0 32px;
   display: flex;
   align-items: baseline;
   gap: 16px;
+  margin-bottom: 40px;
 }
 
 .shop-hero__title {
-  font-size: clamp(36px, 4vw, 56px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0;
 }
 
 .shop-hero__count {
-  font-family: var(--font-display);
-  font-size: 14px;
-  opacity: 0.4;
-  font-weight: 600;
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-size: 13px;
+  opacity: 0.5;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .shop-controls {
-  padding: 0 32px 32px;
+  padding: 0 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 24px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* very subtle line */
+  padding-bottom: 24px;
   flex-wrap: wrap;
 }
 
 .shop-filters {
   display: flex;
-  gap: 8px;
+  gap: 32px; /* using space instead of solid pills */
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .filter-chip {
-  padding: 8px 20px;
-  border-radius: 100px;
-  border: 2px solid var(--secondary);
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 13px;
-  transition: all 0.2s;
-  background: white;
+  padding: 4px 0;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text);
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.filter-chip::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: var(--text);
+  transition: width 0.3s ease;
 }
 
 .filter-chip:hover {
-  border-color: var(--accent);
+  opacity: 1;
+}
+
+.filter-chip:hover::after {
+  width: 100%;
 }
 
 .filter-chip.active {
-  background: var(--text);
-  border-color: var(--text);
-  color: var(--background);
+  opacity: 1;
+  font-weight: 600;
+}
+
+.filter-chip.active::after {
+  width: 100%;
+}
+
+.shop-sort-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .shop-sort {
-  padding: 8px 16px;
-  border-radius: 10px;
-  border: 2px solid var(--secondary);
-  font-family: var(--font-body);
+  appearance: none;
+  background: transparent;
+  border: none;
+  font-family: var(--font-body, "DM Sans", sans-serif);
   font-size: 13px;
   font-weight: 500;
-  background: white;
+  color: var(--text);
   cursor: pointer;
+  padding: 8px 24px 8px 0;
   outline: none;
-  transition: border-color 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.shop-sort:focus {
-  border-color: var(--accent);
+.shop-sort-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .product-grid-shop {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  padding: 0 32px 80px;
+  row-gap: 64px;
+  column-gap: 32px;
+  padding: 64px 32px 80px;
 }
 
 .product-skeleton {
-  aspect-ratio: 3/4;
-  border-radius: 16px;
-  background: linear-gradient(90deg, var(--secondary) 25%, var(--surface) 50%, var(--secondary) 75%);
+  aspect-ratio: 2/3;
+  background: linear-gradient(90deg, #f0f0f0 25%, #fafafa 50%, #f0f0f0 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
 
 @keyframes shimmer {
-  from {
-    background-position: 200% 0;
-  }
-
-  to {
-    background-position: -200% 0;
-  }
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
 }
 
 .shop-empty {
-  padding: 80px 32px;
+  padding: 120px 32px;
   text-align: center;
-  opacity: 0.4;
-  font-size: 18px;
+  font-family: var(--font-body);
+  opacity: 0.5;
+  font-size: 16px;
+  letter-spacing: 0.02em;
 }
 
 @media (max-width: 1024px) {
@@ -117,17 +159,22 @@
 @media (max-width: 768px) {
   .product-grid-shop {
     grid-template-columns: repeat(2, 1fr);
+    column-gap: 16px;
+    row-gap: 40px;
     padding-left: 16px;
     padding-right: 16px;
   }
-
   .shop-controls {
     padding-left: 16px;
     padding-right: 16px;
+    gap: 16px;
+    margin-bottom: 32px;
   }
-
   .shop-hero {
     padding-left: 16px;
     padding-right: 16px;
+    margin-bottom: 24px;
+    flex-direction: column;
+    gap: 8px;
   }
 }

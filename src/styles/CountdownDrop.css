@@ -1,145 +1,192 @@
-.countdown-drop {
-    margin: 60px auto;
+.countdown-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-.countdown-banner {
-    background: var(--text);
-    border-radius: 40px;
+.countdown-drop-modal {
+    background: #1a1a1a;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 24px;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    min-height: 500px;
+    grid-template-columns: 1.2fr 1fr;
     color: white;
-    position: relative;
+    position: relative; /* Ensure children like .drop-close are positioned relative to this */
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.drop-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 10;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.drop-close:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    transform: rotate(90deg);
 }
 
 .countdown-content {
-    padding: 80px;
+    padding: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: 2;
+}
+
+.countdown-eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-weight: 700;
 }
 
 .countdown-title {
-    font-size: clamp(32px, 4vw, 56px);
-    margin-bottom: 40px;
-    line-height: 1;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 32px;
 }
 
 .countdown-timer {
     display: flex;
-    gap: 32px;
-    margin-bottom: 60px;
+    gap: 24px;
+    margin-bottom: 40px;
 }
 
 .timer-unit {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .timer-value {
-    font-family: var(--font-display);
-    font-size: 64px;
-    font-weight: 800;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
     line-height: 1;
-    display: block;
+}
+
+.timer-value:empty::before {
+    content: '00';
 }
 
 .timer-label {
-    font-size: 10px;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
     opacity: 0.5;
-    letter-spacing: 0.2em;
-    margin-top: 8px;
+    margin-top: 4px;
 }
 
 .drop-form {
     display: flex;
-    gap: 12px;
-    max-width: 500px;
+    gap: 10px;
 }
 
 .drop-input {
     flex: 1;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 16px 24px;
-    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 14px 20px;
+    border-radius: 8px;
     color: white;
-    font-family: var(--font-body);
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.drop-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .drop-submit {
-    background: var(--primary);
-    color: var(--text);
-    padding: 16px 32px;
-    border-radius: 100px;
-    font-family: var(--font-display);
+    background: #FDFCFB !important; /* Bright cream/white */
+    color: #1a1a1a !important;
+    padding: 14px 28px !important;
+    border-radius: 100px !important; /* Pill shape */
     font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    font-size: 14px;
-    transition: transform 0.2s;
+    transition: all 0.3s ease;
 }
 
 .drop-submit:hover {
-    transform: scale(1.05);
+    background: var(--primary) !important;
+    transform: translateY(-2px);
 }
 
 .drop-success {
-    padding: 20px 32px;
-    background: rgba(201, 185, 154, 0.1);
-    border: 1px solid var(--primary);
-    border-radius: 100px;
     color: var(--primary);
-    font-family: var(--font-display);
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 14px;
 }
 
-.countdown-teaser {
+.countdown-visual {
     position: relative;
-    overflow: hidden;
+    background: #000;
 }
 
-.teaser-img {
+.visual-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: blur(40px) brightness(0.7);
-    transform: scale(1.2);
+    opacity: 0.7;
+    filter: saturate(0.8) contrast(1.1);
 }
 
-.teaser-overlay {
+.visual-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, var(--text), transparent);
+    background: linear-gradient(to right, #1a1a1a, transparent 50%),
+                linear-gradient(to top, rgba(0,0,0,0.4), transparent);
 }
 
-@media (max-width: 1024px) {
-    .countdown-banner {
-        grid-template-columns: 1fr;
-    }
+/* Subtle fabric texture overlay */
+.countdown-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    opacity: 0.1;
+    pointer-events: none;
+}
 
-    .countdown-teaser {
+@media (max-width: 850px) {
+    .countdown-drop-modal {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+    .countdown-visual {
         display: none;
     }
-
     .countdown-content {
         padding: 40px;
+        text-align: center;
     }
-}
-
-@media (max-width: 768px) {
     .countdown-timer {
-        gap: 16px;
-        justify-content: space-between;
+        justify-content: center;
     }
-
-    .timer-value {
-        font-size: 40px;
-    }
-
     .drop-form {
         flex-direction: column;
     }
-}
+}
